@@ -10,6 +10,55 @@
     <title>Piano</title>
 </head>
 <style>
+    body{
+        background: #000;
+    }
+   .pianowrap{
+        background: #000;
+        font-family: 'Noto Serif', serif;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+     
+ }
+     header {
+      position: relative;
+      margin: 30px 0;
+    }
+
+    header:after {
+      content: '';
+      width: 460px;
+      height: 15px;
+      display: inline-block;
+      text-align: center;
+      background-size: 70%;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 50px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 24px;
+      font-style: italic;
+      font-weight: 400;
+      margin: 0 0 30px;
+    }
+    /* */
+    .nowplaying {
+      font-size: 120px;
+      line-height: 1;
+      color: #eee;
+      text-shadow: 0 0 5rem #e90202;
+      transition: all .07s ease;
+      min-height: 120px;
+    }
  .keys {
       display: block;
       width: 100%;
@@ -74,6 +123,12 @@
     .key[data-key="80"] {
       left: 87%;    
     }
+    .playing {
+      /* transform: scale(.95);*/
+      border-color: #e90202;
+      box-shadow: 0 0 1rem #e90202;
+    }
+    
     .hints {
       display: block;
       width: 100%;
@@ -83,67 +138,75 @@
       transition: opacity .3s ease-out;
       font-size: 20px;
     }
-    
-    .nowplaying {
-      font-size: 120px;
-      line-height: 1;
-      color: #eee;
-      text-shadow: 0 0 5rem #e90202;
-      transition: all .07s ease;
-      min-height: 120px;
-    }
 
     .keys:hover .hints {
       opacity: 1;
-    }
-    .playing {
-      transform: scale(.95);
-      border-color: #e90202;
-      box-shadow: 0 0 1rem #e90202;
     }
 </style>
 <body>
     <!-------------https://codepen.io/gabrielcarol/pen/rGeEbY-->
     <!----------------------------------------->
-    <section >
+    <section class="pianowrap">
+        <header>
+            <h1>JS Piano</h1>
+            <h2>Use your keyboard. Hover for hints.</h2>
+          </header>
     <h1>Hello</h1>
         <section class="piano-main">
             <div class="nowplaying"></div>
                 <div class="keys">
-                    <div data-note="C" data-key="64" class="key"></div>
-                    <span class="hints">A</span>
-                    <div data-note="C#" data-key="87" class="key-sharp key"></div>
-                    <span class="hints">W</span>
-                    <div data-note="D" data-key="83" class="key"></div>
-                    <span class="hints">S</span>
-                    <div data-note="D#" data-key="69" class="key-sharp key"></div>
-                    <span class="hints">E</span>
-                    <div data-note="E" data-key="68" class="key"></div>
-                    <span class="hints">D</span>
-                    <div data-note="F" data-key="70" class="key"></div>
-                    <span class="hints">F</span>
-                    <div data-note="F#" data-key="84" class="key-sharp key"></div>
-                    <span class="hints">T</span>
-                    <div data-note="G" data-key="71" class="key"></div>
-                    <span class="hints">G</span>
-                    <div data-note="G#" data-key="89" class="key-sharp key"></div>
-                    <span class="hints">Y</span>
-                    <div data-note="A" data-key="72" class="key"></div>
-                    <span class="hints">H</span>
-                    <div data-note="A#" data-key="85" class="key-sharp key"></div>
-                    <span class="hints">U</span>
-                    <div data-note="B" data-key="74" class="key"></div>
-                    <span class="hints">J</span>
-                    <div data-note="C" data-key="75" class="key"></div>
-                    <span class="hints">K</span>
-                    <div data-note="C#" data-key="79" class="key-sharp key"></div>
-                    <span class="hints">O</span>
-                    <div data-note="D" data-key="76" class="key"></div>
-                    <span class="hints">L</span>
-                    <div data-note="D#" data-key="80" class="key-sharp key"></div>
-                    <span class="hints">P</span>
-                    <div data-note="E" data-key="186" class="key"></div>
-                    <span class="hints">;</span>
+                    <div data-note="C" data-key="65" class="key">
+                        <span class="hints">A</span>
+                    </div>                   
+                    <div data-note="C#" data-key="87" class="key-sharp key">
+                        <span class="hints">W</span>
+                    </div>                  
+                    <div data-note="D" data-key="83" class="key">
+                        <span class="hints">S</span>
+                    </div>
+                    <div data-note="D#" data-key="69" class="key-sharp key">
+                        <span class="hints">E</span>
+                    </div>                    
+                    <div data-note="E" data-key="68" class="key">
+                        <span class="hints">D</span>
+                    </div>
+                    <div data-note="F" data-key="70" class="key">
+                        <span class="hints">F</span>
+                    </div>                 
+                    <div data-note="F#" data-key="84" class="key-sharp key">
+                        <span class="hints">T</span>
+                    </div>                   
+                    <div data-note="G" data-key="71" class="key">
+                        <span class="hints">G</span>
+                    </div>                   
+                    <div data-note="G#" data-key="89" class="key-sharp key">
+                        <span class="hints">Y</span>
+                    </div>                   
+                    <div data-note="A" data-key="72" class="key">
+                        <span class="hints">H</span>
+                    </div>
+                    <div data-note="A#" data-key="85" class="key-sharp key">
+                        <span class="hints">U</span>
+                    </div>
+                    <div data-note="B" data-key="74" class="key">
+                        <span class="hints">J</span>
+                    </div>
+                    <div data-note="C" data-key="75" class="key">
+                        <span class="hints">K</span>
+                    </div>
+                    <div data-note="C#" data-key="79" class="key-sharp key">
+                        <span class="hints">O</span>
+                    </div>
+                    <div data-note="D" data-key="76" class="key">
+                        <span class="hints">L</span>
+                    </div>
+                    <div data-note="D#" data-key="80" class="key-sharp key">
+                        <span class="hints">P</span>
+                    </div>
+                    <div data-note="E" data-key="186" class="key">
+                        <span class="hints">;</span>
+                    </div>
+                
                 </div>
             
             <!---------Audio------------>
@@ -170,9 +233,9 @@
 
     <script>
 /*Keyboard Javascript */
-const keys = document.querySelectorAll(".key")
-const note = document.querySelector(".nowplaying")
-const hints = document.querySelectorAll(".hints")
+const keys = document.querySelectorAll(".key");
+note = document.querySelector(".nowplaying");
+hints = document.querySelectorAll(".hints");
 
 function PlayNote(event){
     const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`),
@@ -186,9 +249,20 @@ function PlayNote(event){
      audio.currentTime = 0;
      audio.play();
 }
+function removeTransition(event){
+    if (event.propertyNmae !== "transform")
+    return;
+    this.classList.remove("playing");
+}
+function hintsOn(event, index) {
+    event.setAttribute("style", "transition-delay:" + index * 50 + "ms")
+}
 
+hints.forEach(hintsOn);
 
+keys.forEach(key => key.addEventListener("transitionend", removeTransition));
 
+window.addEventListener("keydown", PlayNote);
 
     </script>
 </body>
