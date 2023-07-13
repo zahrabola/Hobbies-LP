@@ -1,277 +1,416 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hobbies</title>
-    <title>Piano</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hobbies</title>
+  <title>Piano</title>
 </head>
 <style>
-  *{
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-    body{
-background-color: #000;
-        overflow-x: hidden;
-    }
-   .pianowrap{
-        background: #000;
-        font-family: 'Noto Serif', serif;
-        -webkit-font-smoothing: antialiased;
-        text-align: center;
- }
- .piano-main{
- margin-bottom: 70px;
- }
-     header {
-      position: relative;
-      padding: 20px;
-     
-    }
+  }
 
-    header:after {
-      content: '';
-      width: 460px;
-      height: 15px;
-      display: inline-block;
-      text-align: center;
-      background-size: 70%;
-    }
+  body {
+    background-color: #000;
+    overflow-x: hidden;
+  }
 
-    h1 {
-      color: #fff;
-      font-size: 50px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin: 0;
-    }
+  .pianowrap {
+    background: #000;
+    font-family: 'Noto Serif', serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+  }
 
-    h2 {
-      color: #fff;
-      font-size: 24px;
-      font-style: italic;
-      font-weight: 400;
-      margin: 0 0 30px;
-    }
-    /* */
-    .nowplaying {
-      font-size: 120px;
-      line-height: 1;
-      color: #eee;
-      text-shadow: 0 0 5rem #e90202;
-      transition: all .07s ease;
-      min-height: 120px;
-    
-    }
- .keys {
-      display: block;
-      width: 100%;
-      height: 350px;
-      max-width: 880px;
-      position: relative;
-      margin: 40px auto 0;
-      cursor: none;
-     
-    
-    }
+  .piano-main {
+    margin-bottom: 70px;
+  }
 
-    .key {
-      position: relative;
-      border: 4px solid black;
-      border-radius: .5rem;
-      transition: all .07s ease;
-      display: block;
-      box-sizing: border-box;
-      z-index: 2;
-    }
+  header {
+    position: relative;
+    padding: 20px;
 
-    .key:not(.key-sharp) {
-      float: left;
-      width: 10%;
-      height: 100%;
-      background: rgba(255, 255, 255, .8);    
-    }
+  }
 
-    .key.key-sharp {
-      position: absolute;
-      width: 6%;
-      height: 60%;
-      background: #000;
-      color: #eee;
-      top: 0;
-      z-index: 3;
-    }
+  header:after {
+    content: '';
+    width: 460px;
+    height: 15px;
+    display: inline-block;
+    text-align: center;
+    background-size: 70%;
+  }
 
-    .key[data-key="87"] {
-      left: 7%;
-    }
+  h1 {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0;
+  }
 
-    .key[data-key="69"] {
-      left: 17%;
-    }
+  h2 {
+    color: #fff;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 400;
+    margin: 0 0 30px;
+  }
 
-    .key[data-key="84"]  {
-      left: 37%;
-    }
+  /* */
+  .nowplaying {
+    font-size: 120px;
+    line-height: 1;
+    color: #eee;
+    text-shadow: 0 0 5rem #e90202;
+    transition: all .07s ease;
+    min-height: 120px;
 
-    .key[data-key="89"] {
-      left: 47%;
-    }
+  }
 
-    .key[data-key="85"] {
-      left: 57%;    
-    }
+  .keys {
+    display: block;
+    width: 100%;
+    height: 350px;
+    max-width: 880px;
+    position: relative;
+    margin: 40px auto 0;
+    cursor: none;
 
-    .key[data-key="79"] {
-      left: 77%;    
-    }
 
-    .key[data-key="80"] {
-      left: 87%;    
-    }
-    .playing {
-      /* transform: scale(.95);*/
-      border-color: #e90202;
-      box-shadow: 0 0 1rem #e90202;
-    }
-    
-    .hints {
-      display: block;
-      width: 100%;
-      opacity: 0;
-      position: absolute;
-      bottom: 7px;
-      transition: opacity .3s ease-out;
-      font-size: 20px;
-    }
+  }
 
-    .keys:hover .hints {
-      opacity: 1;
-    }
-    .top{
-  width: auto;
-  padding: 20px; 
-  color: white;
-  max-height: 800px;
-    }
-    .first-div {
-  background-color: #e90202;
- /*  height: calc(60vh - 60px) */ 
-}
-.big-header {
-  color: #fcdde8;
-  font-size: calc(1em + 10vw);
-  font-weight: 600;
-  text-shadow: -0.0075em 0.0075em 0 #fef2f6, 0.005em 0.005em 0 #f6a5a5, 0.01em 0.01em 0 #f7aaaa, 0.015em 0.015em #ff9b9b, 0.02em 0.02em 0 #f8b3b3, 0.025em 0.025em 0 #f8b7b7, 0.03em 0.03em 0 #f8bcbc, 0.035em 0.035em 0 #f9c0c0;
+  .key {
+    position: relative;
+    border: 4px solid black;
+    border-radius: .5rem;
+    transition: all .07s ease;
+    display: block;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+
+  .key:not(.key-sharp) {
+    float: left;
+    width: 10%;
+    height: 100%;
+    background: rgba(255, 255, 255, .8);
+  }
+
+  .key.key-sharp {
+    position: absolute;
+    width: 6%;
+    height: 60%;
+    background: #000;
+    color: #eee;
+    top: 0;
+    z-index: 3;
+  }
+
+  .key[data-key="87"] {
+    left: 7%;
+  }
+
+  .key[data-key="69"] {
+    left: 17%;
+  }
+
+  .key[data-key="84"] {
+    left: 37%;
+  }
+
+  .key[data-key="89"] {
+    left: 47%;
+  }
+
+  .key[data-key="85"] {
+    left: 57%;
+  }
+
+  .key[data-key="79"] {
+    left: 77%;
+  }
+
+  .key[data-key="80"] {
+    left: 87%;
+  }
+
+  .playing {
+    /* transform: scale(.95);*/
+    border-color: #e90202;
+    box-shadow: 0 0 1rem #e90202;
+  }
+
+  .hints {
+    display: block;
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    bottom: 7px;
+    transition: opacity .3s ease-out;
+    font-size: 20px;
+  }
+.note{
+  padding-top: 20px;
+  color: #e90202;
+  opacity:0.7E ;
 }
 
-button{
-margin: 40px 0 120px 0;
-padding: 25px 30px;
-  background-color: #e90202;
-  color: #ffffff;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  letter-spacing: 4px;
-  overflow: hidden;
-  transition: 0.5s;
-  cursor: pointer;
-}
-button:hover{
+  .keys:hover .hints {
+    opacity: 1;
+  }
+
+  .top {
+    width: auto;
+    padding: 20px;
+    color: white;
+    max-height: 800px;
+  }
+
+  .first-div {
+    padding: 20px;
+    height: 100vh;
+    background-color: #e90202;
+    /*  height: calc(60vh - 60px) */
+  }
+
+  .big-header {
+    color: #fcdde8;
+    font-size: calc(1em + 10vw);
+    font-weight: 600;
+    text-shadow: -0.0075em 0.0075em 0 #fef2f6, 0.005em 0.005em 0 #f6a5a5, 0.01em 0.01em 0 #f7aaaa, 0.015em 0.015em #ff9b9b, 0.02em 0.02em 0 #f8b3b3, 0.025em 0.025em 0 #f8b7b7, 0.03em 0.03em 0 #f8bcbc, 0.035em 0.035em 0 #f9c0c0;
+  }
+
+  button {
+    margin: 40px 0 120px 0;
+    padding: 25px 30px;
+    background-color: #e90202;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  button:hover {
     background: #ffffff;
     color: #050801;
     box-shadow: 0 0 5px #ffffff,
-                0 0 25px #fcffff,
-                0 0 50px #ffffff,
-                0 0 200px #ffffff;
-     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
-}
+      0 0 25px #fcffff,
+      0 0 50px #ffffff,
+      0 0 200px #ffffff;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+  }
+
+  .container-img {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+
+  .imgcard {
+    margin-top: 40px;
+    height: 360px;
+    background-color: rebeccapurple;
+    width: 300px;
+  }
+
+  .modaltarget {
+    width: 300px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .modaltarget:hover {
+    opacity: 0.7;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+ 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .modalcontent {
+    margin: auto;
+    display: block;
+    width: 80%;
+    opacity: 1 !important;
+    max-width: 600px;
+  }
+
+  .modalcaption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    margin-top: 32px;
+  }
+
+  .modalcontent,
+  .modalcaption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+  @-webkit-keyframes zoom {
+    from {
+      -webkit-atransform: scale(0)
+    }
+
+    to {
+      -webkit-transform: scale(1)
+    }
+  }
+
+  @keyframes zoom {
+    from {
+      transform: scale(0)
+    }
+
+    to {
+      transform: scale(1)
+    }
+  }
+  .modalclose{
+    position: absolute;
+    top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  }
+  .modalclose:hover, 
+  .modalclose:focus{
+    color: #e90202;
+    text-decoration: none;
+  cursor: pointer
+  }
 </style>
+
 <body>
-    <!-------------https://codepen.io/gabrielcarol/pen/rGeEbY-->
-    <!--------------https://dribbble.com/shots/9330241-PianOrt-landing-page/attachments/1370384?mode=media--------------------------->
-    <!-----------------------https://spinditty.com/learning/Hobby-of-Playing-The-Piano -->
-    <!----------piano landing page -->
-    <section class="top first-div">
-      <h1>Discover the </h1>
-      <div class="container">
-        <h1 class="big-header">Pianist</h1> 
-      </div>
-      <h1>Inside you </h1>
-      <button>Start Learning</button> 
-    </section>
-    <section class="pianowrap">
-        <header>
-            <h1>Play Piano</h1>
-            <h2>Use your keyboard. Hover for hints.</h2>
-          </header>
+  <!-------------https://codepen.io/gabrielcarol/pen/rGeEbY-->
+  <!--------------https://dribbble.com/shots/9330241-PianOrt-landing-page/attachments/1370384?mode=media--------------------------->
+  <!-----------------------https://spinditty.com/learning/Hobby-of-Playing-The-Piano -->
+  <!----------piano landing page -->
+  <section class="top first-div">
+    <h1>Discover the </h1>
+    <div class="container">
+      <h1 class="big-header">Pianist</h1>
+    </div>
+    <h1>Inside you </h1>
+    <button>Start Learning</button>
+  </section>
+  <section class="pianowrap">
+    <header>
+      <h1>Play Piano</h1>
+      <h2>Use your keyboard. Hover for hints.</h2>
+    </header>
     <h1>Notes:</h1>
-        <section class="piano-main">
-            <div class="nowplaying"></div>
-                <div class="keys">
-                    <div data-note="C" data-key="65" class="key">
-                        <span class="hints">A</span>
-                    </div>                   
-                    <div data-note="C#" data-key="87" class="key-sharp key">
-                        <span class="hints">W</span>
-                    </div>                  
-                    <div data-note="D" data-key="83" class="key">
-                        <span class="hints">S</span>
-                    </div>
-                    <div data-note="D#" data-key="69" class="key-sharp key">
-                        <span class="hints">E</span>
-                    </div>                    
-                    <div data-note="E" data-key="68" class="key">
-                        <span class="hints">D</span>
-                    </div>
-                    <div data-note="F" data-key="70" class="key">
-                        <span class="hints">F</span>
-                    </div>                 
-                    <div data-note="F#" data-key="84" class="key-sharp key">
-                        <span class="hints">T</span>
-                    </div>                   
-                    <div data-note="G" data-key="71" class="key">
-                        <span class="hints">G</span>
-                    </div>                   
-                    <div data-note="G#" data-key="89" class="key-sharp key">
-                        <span class="hints">Y</span>
-                    </div>                   
-                    <div data-note="A" data-key="72" class="key">
-                        <span class="hints">H</span>
-                    </div>
-                    <div data-note="A#" data-key="85" class="key-sharp key">
-                        <span class="hints">U</span>
-                    </div>
-                    <div data-note="B" data-key="74" class="key">
-                        <span class="hints">J</span>
-                    </div>
-                    <div data-note="C" data-key="75" class="key">
-                        <span class="hints">K</span>
-                    </div>
-                    <div data-note="C#" data-key="79" class="key-sharp key">
-                        <span class="hints">O</span>
-                    </div>
-                    <div data-note="D" data-key="76" class="key">
-                        <span class="hints">L</span>
-                    </div>
-                    <div data-note="D#" data-key="80" class="key-sharp key">
-                        <span class="hints">P</span>
-                    </div>
-                    <div data-note="E" data-key="186" class="key">
-                        <span class="hints">;</span>
-                    </div>
-                
-                </div>
-            
-            <!---------Audio------------>
-            
+    <section class="piano-main">
+      <div class="nowplaying"></div>
+      <div class="keys">
+        <div data-note="C" data-key="65" class="key">
+          <span class="hints">A</span>
+          <p class="note"> C</p>
+        </div>
+        <div data-note="C#" data-key="87" class="key-sharp key">
+          <span class="hints">W</span>
+          <p class="note">C#</p>
+        </div>
+        <div data-note="D" data-key="83" class="key">
+          <span class="hints">S</span>
+          <p class="note">D</p>
+        </div>
+        <div data-note="D#" data-key="69" class="key-sharp key">
+          <span class="hints">E</span>
+          <p class="note">D#</p>
+        </div>
+        <div data-note="E" data-key="68" class="key">
+          <span class="hints">D</span>
+          <p class="note">E</p>
+        </div>
+        <div data-note="F" data-key="70" class="key">
+          <span class="hints">F</span>
+          <p class="note">F</p>
+        </div>
+        <div data-note="F#" data-key="84" class="key-sharp key">
+          <span class="hints">T</span>
+          <p class="note">F#</p>
+        </div>
+        <div data-note="G" data-key="71" class="key">
+          <span class="hints">G</span>
+          <p class="note">G</p>
+        </div>
+        <div data-note="G#" data-key="89" class="key-sharp key">
+          <span class="hints">Y</span>
+          <p class="note">G#</p>
+        </div>
+        <div data-note="A" data-key="72" class="key">
+          <span class="hints">H</span>
+          <p class="note">A</p>
+        </div>
+        <div data-note="A#" data-key="85" class="key-sharp key">
+          <span class="hints">U</span>
+          <p class="note">A#</p>
+        </div>
+        <div data-note="B" data-key="74" class="key">
+          <span class="hints">J</span>
+          <p class="note">B</p>
+        </div>
+        <div data-note="C" data-key="75" class="key">
+          <span class="hints">K</span>
+          <p class="note">C</p>
+        </div>
+        <div data-note="C#" data-key="79" class="key-sharp key">
+          <span class="hints">O</span>
+          <p class="note">C#</p>
+        </div>
+        <div data-note="D" data-key="76" class="key">
+          <span class="hints">L</span>
+          <p class="note">D</p>
+        </div>
+        <div data-note="D#" data-key="80" class="key-sharp key">
+          <span class="hints">P</span>
+          <p class="note">D#</p>
+        </div>
+        <div data-note="E" data-key="186" class="key">
+          <span class="hints">;</span>
+          <p class="note">E</p>
+        </div>
+
+      </div>
+
+      <!---------Audio------------>
+
       <audio data-key="65" src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"></audio>
       <audio data-key="87" src="http://carolinegabriel.com/demo/js-keyboard/sounds/041.wav"></audio>
       <audio data-key="83" src="http://carolinegabriel.com/demo/js-keyboard/sounds/042.wav"></audio>
@@ -289,47 +428,108 @@ button:hover{
       <audio data-key="76" src="http://carolinegabriel.com/demo/js-keyboard/sounds/054.wav"></audio>
       <audio data-key="80" src="http://carolinegabriel.com/demo/js-keyboard/sounds/055.wav"></audio>
       <audio data-key="186" src="http://carolinegabriel.com/demo/js-keyboard/sounds/056.wav"></audio>
-        </section>
     </section>
-    <!----------------------->
-    <section class="first-div">
-      <!------------https://codepen.io/sinisag/pen/vPEajE -->
-      <div>Hello</div>
-    </section>
+  </section>
+  <!----------------------->
+  <section class="first-div">
+    <!------------https://codepen.io/sinisag/pen/vPEajE -->
+    <!-------------------------https://www.choose-piano-lessons.com/kids-songs.html-->
+    <h1>Beginner piano sheet music </h1>
+    <div class="container-img">
+      <div>
+        <img class="modaltarget imgcard " alt="Img-1"
+          src="https://www.choose-piano-lessons.com/images/xitsy-bitsy-spider-piano-melody.jpg.pagespeed.ic.M8gnkw89LW.webp" />
+      </div>
+      <div>
+        <img class="modaltarget imgcard " alt="Img-2"
+          src="https://www.choose-piano-lessons.com/images/xold-mcdonald-piano-melody.jpg.pagespeed.ic.PovNp5A9qD.webp" />
+      </div>
+      <div>
+        <img class="modaltarget imgcard " alt="Img-3"
+          src="https://www.choose-piano-lessons.com/images/xrow-row-row-your-boat-piano-melody.jpg.pagespeed.ic.DH14XgryA6.webp" />
+      </div>
+      <div>
+        <img class="modaltarget imgcard  " alt="Img-4"
+          src="https://www.choose-piano-lessons.com/images/xtwinkle-twinkle-little-star-piano-melody.jpg.pagespeed.ic.0vXfsZwpx4.webp" />
+      </div>
+      <div>
+        <img class="modaltarget imgcard " alt="Img-5"
+          src="https://www.choose-piano-lessons.com/images/xi-love-you-piano-melody.jpg.pagespeed.ic.A6O6YFno0N.webp" />
+      </div>
+      <div>
+        <img class="modaltarget imgcard  " alt="Img-6"
+          src="https://www.choose-piano-lessons.com/images/xhappy-birthday-piano-melody.jpg.pagespeed.ic.Y9W5C4FdNv.webp" />
+      </div>
+      <div>
+        <img class="modaltarget imgcard " alt="Img-7"
+          src="https://www.choose-piano-lessons.com/images/xyankee-doodle-piano-melody.jpg.pagespeed.ic.gzswD4Nc2M.webp" />
+      </div>
+    </div>
+    <div>
+      <!-- The Modal -->
+      <div id="modal" class="modal">
+        <span id="modalclose" class="modalclose">&times;</span>
+        <img id="modalcontent" class="modalcontent">
+        <div id="modalcaption" class="modalcaption"></div>
+      </div>
+    </div>
+  </section>
+ 
+  <script>
+    /*Keyboard Javascript */
+    const keys = document.querySelectorAll(".key");
+    note = document.querySelector(".nowplaying");
+    hints = document.querySelectorAll(".hints");
 
-    <script>
-/*Keyboard Javascript */
-const keys = document.querySelectorAll(".key");
-note = document.querySelector(".nowplaying");
-hints = document.querySelectorAll(".hints");
+    function PlayNote(event) {
+      const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`),
+        key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
 
-function PlayNote(event){
-    const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`),
-    key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
+      if (!key) return;
+      const keyNote = key.getAttribute("data-note");
 
-    if(!key) return;
-     const keyNote = key.getAttribute("data-note");
-     
-     key.classList.add("playing");
-     note.innerHTML = keyNote;
-     audio.currentTime = 0;
-     audio.play();
-}
-function removeTransition(event){
-    if (event.propertyNmae !== "transform")
-    return;
-    this.classList.remove("playing");
-}
-function hintsOn(event, index) {
-    event.setAttribute("style", "transition-delay:" + index * 50 + "ms")
-}
+      key.classList.add("playing");
+      note.innerHTML = keyNote;
+      audio.currentTime = 0;
+      audio.play();
+    }
+    function removeTransition(event) {
+      if (event.propertyNmae !== "transform")
+        return;
+      this.classList.remove("playing");
+    }
+    function hintsOn(event, index) {
+      event.setAttribute("style", "transition-delay:" + index * 50 + "ms")
+    }
 
-hints.forEach(hintsOn);
+    hints.forEach(hintsOn);
 
-keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+    keys.forEach(key => key.addEventListener("transitionend", removeTransition));
 
-window.addEventListener("keydown", PlayNote);
+    window.addEventListener("keydown", PlayNote);
 
-    </script>
+  </script>
+  <!--------modal-------->
+  <script>
+ const modal = document.getElementById('modal');
+ const modalclose = document.getElementById('modalclose');
+
+ modalclose.addEventListener('click', function(){
+  modal.style.display ="none";
+ });
+ ///// handler
+ document.addEventListener('click', function(e){
+  if (e.target.className.indexOf('modaltarget') !== -1){
+    const img = e.target;
+    const modalImg = document.getElementById("modalcontent");
+    const captiontext = document.getElementById("modalcaption");
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    captiontext.innerHTML = img.alt
+ }
+ });
+ 
+ </script>
 </body>
+
 </html>
