@@ -10,19 +10,28 @@
     <title>Piano</title>
 </head>
 <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
     body{
-        background: #000;
+background-color: #000;
+        overflow-x: hidden;
     }
    .pianowrap{
         background: #000;
         font-family: 'Noto Serif', serif;
         -webkit-font-smoothing: antialiased;
         text-align: center;
-     
+ }
+ .piano-main{
+ margin-bottom: 70px;
  }
      header {
       position: relative;
-      margin: 30px 0;
+      padding: 20px;
+     
     }
 
     header:after {
@@ -58,6 +67,7 @@
       text-shadow: 0 0 5rem #e90202;
       transition: all .07s ease;
       min-height: 120px;
+    
     }
  .keys {
       display: block;
@@ -67,6 +77,8 @@
       position: relative;
       margin: 40px auto 0;
       cursor: none;
+     
+    
     }
 
     .key {
@@ -142,17 +154,65 @@
     .keys:hover .hints {
       opacity: 1;
     }
+    .top{
+  width: auto;
+  padding: 20px; 
+  color: white;
+  max-height: 800px;
+    }
+    .first-div {
+  background-color: #e90202;
+ /*  height: calc(60vh - 60px) */ 
+}
+.big-header {
+  color: #fcdde8;
+  font-size: calc(1em + 10vw);
+  font-weight: 600;
+  text-shadow: -0.0075em 0.0075em 0 #fef2f6, 0.005em 0.005em 0 #f6a5a5, 0.01em 0.01em 0 #f7aaaa, 0.015em 0.015em #ff9b9b, 0.02em 0.02em 0 #f8b3b3, 0.025em 0.025em 0 #f8b7b7, 0.03em 0.03em 0 #f8bcbc, 0.035em 0.035em 0 #f9c0c0;
+}
+
+button{
+margin: 40px 0 120px 0;
+padding: 25px 30px;
+  background-color: #e90202;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+}
+button:hover{
+    background: #ffffff;
+    color: #050801;
+    box-shadow: 0 0 5px #ffffff,
+                0 0 25px #fcffff,
+                0 0 50px #ffffff,
+                0 0 200px #ffffff;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
 </style>
 <body>
     <!-------------https://codepen.io/gabrielcarol/pen/rGeEbY-->
     <!--------------https://dribbble.com/shots/9330241-PianOrt-landing-page/attachments/1370384?mode=media--------------------------->
+    <!-----------------------https://spinditty.com/learning/Hobby-of-Playing-The-Piano -->
     <!----------piano landing page -->
+    <section class="top first-div">
+      <h1>Discover the </h1>
+      <div class="container">
+        <h1 class="big-header">Pianist</h1> 
+      </div>
+      <h1>Inside you </h1>
+      <button>Start Learning</button> 
+    </section>
     <section class="pianowrap">
         <header>
-            <h1>JS Piano</h1>
+            <h1>Play Piano</h1>
             <h2>Use your keyboard. Hover for hints.</h2>
           </header>
-    <h1>Hello</h1>
+    <h1>Notes:</h1>
         <section class="piano-main">
             <div class="nowplaying"></div>
                 <div class="keys">
@@ -230,6 +290,11 @@
       <audio data-key="80" src="http://carolinegabriel.com/demo/js-keyboard/sounds/055.wav"></audio>
       <audio data-key="186" src="http://carolinegabriel.com/demo/js-keyboard/sounds/056.wav"></audio>
         </section>
+    </section>
+    <!----------------------->
+    <section class="first-div">
+      <!------------https://codepen.io/sinisag/pen/vPEajE -->
+      <div>Hello</div>
     </section>
 
     <script>
